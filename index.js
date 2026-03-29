@@ -29,7 +29,7 @@ function isHidden(hiding, aware) {
  */
 function doesStrikeHit(attack, ac) {
   const strikehit = attack >= ac
-  return strikehit 
+  return strikehit; 
     }
 
 /**
@@ -40,7 +40,8 @@ function doesStrikeHit(attack, ac) {
  * @returns {boolean} whether the strike is a critical hit
  */
 function doesStrikeCrit(attack, ac) {
-    
+    const criticalhit = attack > 10 + ac;
+    return criticalhit; 
 }
 
 /**

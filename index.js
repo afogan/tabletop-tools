@@ -6,7 +6,7 @@
  * @returns {boolean} whether the wizard can cast the spell
  */
 function canCastSpell(isSpellPrepared, hasScroll) {
-  return isSpellPrepared || hasScroll// TODO
+  return isSpellPrepared || hasScroll;// TODO
 }
 
 /**
@@ -17,7 +17,7 @@ function canCastSpell(isSpellPrepared, hasScroll) {
  * @returns {boolean} whether the creature is hidden from the observer
  */
 function isHidden(hiding, aware) {
-  // TODO
+  return hiding || !aware;// TODO3
 }
 
 /**
@@ -28,8 +28,9 @@ function isHidden(hiding, aware) {
  * @returns {boolean} whether the strike hits
  */
 function doesStrikeHit(attack, ac) {
-  // TODO
-}
+  const strikehit = attack >= ac
+  return strikehit 
+    }
 
 /**
  * A strike is a critical hit if the attack value is at least
@@ -39,7 +40,7 @@ function doesStrikeHit(attack, ac) {
  * @returns {boolean} whether the strike is a critical hit
  */
 function doesStrikeCrit(attack, ac) {
-  // TODO
+    
 }
 
 /**

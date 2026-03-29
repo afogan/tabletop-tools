@@ -30,7 +30,7 @@ function isHidden(hiding, aware) {
 function doesStrikeHit(attack, ac) {
   const strikehit = attack >= ac
   return strikehit; 
-    }
+}
 
 /**
  * A strike is a critical hit if the attack value is at least
@@ -53,9 +53,13 @@ function doesStrikeCrit(attack, ac) {
  * @returns {number} total hit points after healing
  */
 function heal(maxHp, currentHp, healAmount) {
-  // TODO
+const TotalHp = currentHp + healAmount;
+if (TotalHp > maxHp) {
+return maxHp;
+} else {
+return TotalHp;
 }
-
+}
 /**
  * When a character uses a skill they have proficiency in,
  * they get to add a bonus to their attempt.

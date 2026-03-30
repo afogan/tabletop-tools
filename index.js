@@ -110,7 +110,6 @@ if (behindObstacle && takingCover) {
 } else {
   return 0;
 }
-
 }
 /**
  * A creature's current hit points (HP) is reduced by taking damage.
@@ -134,8 +133,6 @@ const remainingHp = currentHp - damage;
   return remainingHp
 }
 }
-
-
 /**
  * All creatures can see in bright light.
  * Creatures with low-light vision can also see in dim light.
@@ -168,5 +165,13 @@ function canSee(light, vision) {
  * @returns {number} damage dealt by the strike
  */
 function getStrikeDamage(attack, ac, damage) {
-  // TODO
+  const strikeDamage = attack + damage;
+if (doesStrikeHit(attack, ac)) {
+return damage;
+} else if (doesStrikeCrit (attack, ac)) {
+return 2 * damage;
+} else if (!doesStrikeHit(attack, ac)) {
+  return damage
 }
+}
+

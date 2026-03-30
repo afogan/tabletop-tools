@@ -112,8 +112,6 @@ if (behindObstacle && takingCover) {
 }
 
 }
-  
-
 /**
  * A creature's current hit points (HP) is reduced by taking damage.
  * If the damage taken is greater than or equal to double its maximum
@@ -127,8 +125,16 @@ if (behindObstacle && takingCover) {
  * @returns {number} the creature's remaining HP after taking damage
  */
 function getRemainingHp(maxHp, currentHp, damage) {
-  // TODO
+const remainingHp = currentHp - damage;
+  if (damage >= 2 * maxHp) {
+  return -1; 
+} else if (remainingHp <= 0) {
+  return 0;
+} else {
+  return remainingHp
 }
+}
+
 
 /**
  * All creatures can see in bright light.
@@ -139,9 +145,18 @@ function getRemainingHp(maxHp, currentHp, damage) {
  * @returns {boolean} whether the creature can see
  */
 function canSee(light, vision) {
-  // TODO
+  if (light === "bright") {
+    return true;
+  }
+  if (vision === "dark") {
+    return true;
+  }
+  if (vision === "low-light" && light === "dim") {
+    return true;
+  }
+  else
+  return false;
 }
-
 /**
  * A strike deals damage if it hits, unless the strike is a critical hit,
  * in which case it deals double damage.

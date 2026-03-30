@@ -77,9 +77,21 @@ return TotalHp;
  * @returns {number} the character's proficiency bonus
  */
 function getProficiencyBonus(level, rank) {
-  // TODO
+if (rank === "untrained") {
+  return 0;
+} else if (rank === "trained") {
+  return level + 2;
+} else if (rank === "expert") {
+  return level + 4;
+} else if (rank === "master") {
+  return level + 6;
+} else if (rank === "legendary") {
+  return level + 8; 
+} else {
+  return 0;
 }
-
+}
+  
 /**
  * A creature can get a bonus to its armor class (AC) by taking cover.
  * If the creature is behind an obstacle, it gets a +2 bonus to its AC,
@@ -91,8 +103,16 @@ function getProficiencyBonus(level, rank) {
  * @returns {number} the cover bonus to AC
  */
 function getCoverBonus(behindObstacle, takingCover) {
-  // TODO
+if (behindObstacle && takingCover) {
+  return 4;
+} else if (behindObstacle) {
+  return 2; 
+} else {
+  return 0;
 }
+
+}
+  
 
 /**
  * A creature's current hit points (HP) is reduced by taking damage.
